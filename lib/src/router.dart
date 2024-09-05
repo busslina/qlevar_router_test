@@ -1,25 +1,36 @@
-import 'package:qlevar_router/qlevar_router.dart';
+import 'package:flutter/material.dart';
 import 'package:qlevar_router_test/src/routes.dart';
 import 'package:qlevar_router_test/src/screens/_lib.dart';
 import 'package:qlevar_router_test/src/screens/profile.screen.dart';
 import 'package:rearch/rearch.dart';
+import 'package:routemaster/routemaster.dart';
 
-QRouterDelegate appRouterDelegateCapsule(CapsuleHandle use) {
+RoutemasterDelegate appRouterDelegateCapsule(CapsuleHandle use) {
   final routes = use(routesCapsule);
 
   return use.memo(
-    () => QRouterDelegate(routes),
+    () => RoutemasterDelegate(routesBuilder: (context) => routes),
     [routes],
   );
 }
 
-List<QRoute> routesCapsule(CapsuleHandle use) => use.lazyValue(() => [
-      const QRoute(
-        path: Routes.index,
-        builder: IndexScreen.new,
+RouteMap routesCapsule(CapsuleHandle use) => use.lazyValue(
+      () => RouteMap(
+        routes: {
+          Routes.index: (routeData) => const MaterialPage(child: IndexScreen()),
+          Routes.profile: (routeData) =>
+              const MaterialPage(child: ProfileScreen()),
+        },
       ),
-      const QRoute(
-        path: Routes.profile,
-        builder: ProfileScreen.new,
-      ),
-    ]);
+    );
+
+// RouteMap routesCapsule(CapsuleHandle use) => use.lazyValue(() => [
+//       const QRoute(
+//         path: Routes.index,
+//         builder: IndexScreen.new,
+//       ),
+//       const QRoute(
+//         path: Routes.profile,
+//         builder: ProfileScreen.new,
+//       ),
+//     ]);

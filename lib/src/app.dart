@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rearch/flutter_rearch.dart';
-import 'package:qlevar_router/qlevar_router.dart';
 import 'package:qlevar_router_test/src/router.dart';
 import 'package:rearch/rearch.dart';
+import 'package:routemaster/routemaster.dart';
 
 class App extends RearchConsumer {
   const App({super.key});
@@ -10,7 +10,7 @@ class App extends RearchConsumer {
   @override
   Widget build(BuildContext context, WidgetHandle use) {
     final routeInformationParser =
-        use.lazyValue(() => const QRouteInformationParser());
+        use.lazyValue(() => const RoutemasterParser());
     final routerDelegate = use(appRouterDelegateCapsule);
 
     return MaterialApp.router(
