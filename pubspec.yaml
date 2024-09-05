@@ -37,7 +37,6 @@ dependencies:
   cupertino_icons: ^1.0.8
   rearch: ^1.10.1
   flutter_rearch: ^1.6.8
-  routemaster: ^1.0.1
 
 dev_dependencies:
   flutter_test:
