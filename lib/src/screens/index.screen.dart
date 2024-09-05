@@ -18,7 +18,8 @@ class IndexScreen extends RearchConsumer {
       children: [
         const Text('Index screen'),
         ElevatedButton(
-            onPressed: () => QR.toName(Routes.profile),
+            // onPressed: () => QR.toName(Routes.profile),
+            onPressed: () => QR.replaceAll(Routes.profile),
             child: const Text('Profile')),
       ],
     ));

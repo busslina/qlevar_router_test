@@ -14,6 +14,12 @@ QRouterDelegate appRouterDelegateCapsule(CapsuleHandle use) {
 }
 
 List<QRoute> routesCapsule(CapsuleHandle use) => use.lazyValue(() => [
-      const QRoute(path: Routes.index, builder: IndexScreen.new),
-      const QRoute(path: Routes.profile, builder: ProfileScreen.new),
+      const QRoute(
+        path: Routes.index,
+        builder: IndexScreen.new,
+      ),
+      const QRoute(
+        path: Routes.profile,
+        builder: ProfileScreen.new,
+      ),
     ]);
